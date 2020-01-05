@@ -1,5 +1,6 @@
 variable "WEBSITE_URL" {
   type = string
+  default = "pewpew.reznikov.eu"
 }
 
 provider "aws" {
