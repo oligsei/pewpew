@@ -19,22 +19,20 @@ resource "aws_s3_bucket" "bucket" {
   bucket = var.WEBSITE_URL
   acl = "public-read"
 
-  policy = <<EOF
-{
-  "Id": "MakePublic",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${var.WEBSITE_URL}/*",
-      "Principal": "*"
-    }
-  ]
-}
-EOF
+  policy = jsonencode({
+    Id: "MakePublic",
+    Version: "2012-10-17",
+    Statement: [
+      {
+        Action: [
+          "s3:GetObject"
+        ],
+        Effect: "Allow",
+        Resource: "arn:aws:s3:::${var.WEBSITE_URL}/*",
+        Principal: "*"
+      }
+    ]
+  })
 
   website {
     index_document = "index.html"
