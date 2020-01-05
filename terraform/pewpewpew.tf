@@ -25,7 +25,7 @@ resource "aws_s3_bucket" "s3Bucket" {
         "s3:GetObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::pew-pew-pew/*",
+      "Resource": "arn:aws:s3:::pewpew.reznikov.eu/*",
       "Principal": "*"
     }
   ]
