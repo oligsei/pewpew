@@ -38,6 +38,6 @@ jobs:
         env:
           SOURCE_DIR: './src'
           AWS_REGION: 'eu-central-1'
-          AWS_S3_BUCKET: 'pew-pew-pew'
+          AWS_S3_BUCKET: 'pewpew.reznikov.eu'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
