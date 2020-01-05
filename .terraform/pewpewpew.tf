@@ -1,19 +1,15 @@
 variable "WEBSITE_URL" {}
 
-variable "AWS_REGION" {
-  default = "eu-central-1"
-}
-
 provider "aws" {
   version = "~> 2.0"
-  region = var.AWS_REGION
+  region = "eu-central-1"
 }
 
 terraform {
   backend "s3" {
     bucket = "sync-remote"
     key = var.WEBSITE_URL
-    region = var.AWS_REGION
+    region = "eu-central-1"
   }
 }
 
