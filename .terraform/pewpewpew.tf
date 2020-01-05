@@ -1,4 +1,6 @@
-variable "WEBSITE_URL" {}
+variable "WEBSITE_URL" {
+  type = string
+}
 
 provider "aws" {
   version = "~> 2.0"
