@@ -1,18 +1,24 @@
+variable "WEBSITE_URL" {}
+
+variable "AWS_REGION" {
+  defalt = "eu-central-1"
+}
+
 provider "aws" {
   version = "~> 2.0"
-  region = "eu-central-1"
+  region = var.AWS_REGION
 }
 
 terraform {
   backend "s3" {
-    bucket = "pew-pew-pew-remote"
-    key = "pewpew.reznikov.eu"
-    region = "eu-central-1"
+    bucket = "sync-remote"
+    key = var.WEBSITE_URL
+    region = var.AWS_REGION
   }
 }
 
-resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "pewpew.reznikov.eu"
+resource "aws_s3_bucket" "bucket" {
+  bucket = var.WEBSITE_URL
   acl = "public-read"
 
   policy = <<EOF
@@ -25,7 +31,7 @@ resource "aws_s3_bucket" "s3Bucket" {
         "s3:GetObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::pewpew.reznikov.eu/*",
+      "Resource": "arn:aws:s3:::${var.WEBSITE_URL}/*",
       "Principal": "*"
     }
   ]
