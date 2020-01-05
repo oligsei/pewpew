@@ -1,7 +1,7 @@
 variable "WEBSITE_URL" {}
 
 variable "AWS_REGION" {
-  defalt = "eu-central-1"
+  default = "eu-central-1"
 }
 
 provider "aws" {
