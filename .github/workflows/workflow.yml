@@ -42,7 +42,7 @@ jobs:
       - run: npm run build
 
       - name: Sync S3
-        uses: jakejarvis/s3-sync-action@master
+        uses: jakejarvis/s3-sync-action@v0.5.0
         env:
           SOURCE_DIR: './build'
           AWS_REGION: 'eu-central-1'
