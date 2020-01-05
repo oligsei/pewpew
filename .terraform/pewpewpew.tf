@@ -10,7 +10,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "sync-remote"
-    key = var.WEBSITE_URL
+    key = "terraform/state/${var.WEBSITE_URL}"
     region = "eu-central-1"
   }
 }
