@@ -6,13 +6,13 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "pew-pew-pew-remote"
-    key = "pewpewpew"
+    key = "pewpew.reznikov.eu"
     region = "eu-central-1"
   }
 }
 
 resource "aws_s3_bucket" "s3Bucket" {
-  bucket = "pew-pew-pew"
+  bucket = "pewpew.reznikov.eu"
   acl = "public-read"
 
   policy = <<EOF
