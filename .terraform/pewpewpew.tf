@@ -1,6 +1,5 @@
 variable "WEBSITE_URL" {
   type = string
-  default = "pewpew.reznikov.eu"
 }
 
 provider "aws" {
@@ -11,7 +10,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "sync-remote"
-    key = "terraform/state/${var.WEBSITE_URL}"
+    key = "terraform/state/pewpew.reznikov.eu"
     region = "eu-central-1"
   }
 }
